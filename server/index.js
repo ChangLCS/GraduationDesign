@@ -7,6 +7,7 @@
 
 const http = require('http');
 const url = require('url');
+const config = require('./config.js');
 
 const data = {
   name: 'Chang',
@@ -16,10 +17,17 @@ const data = {
 
 const server = http.createServer((req, res) => {
   const urlInfo = url.parse(req.url, true);
-  if (urlInfo.path === '/test') {
-    res.writeHead(200, { 'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*' });
-
-    res.end(JSON.stringify(data));
+  if (/\/{1,2}test$/i.test(urlInfo.pathname)) {
+    res.writeHead(200, Object.assign({}, config.responseHeader));
+    res.end(
+      JSON.stringify(
+        Object.assign({}, config.responseSuccess, {
+          result: data,
+        }),
+      ),
+    );
+  } else {
+    res.end(JSON.stringify(config.responseError));
   }
 });
 

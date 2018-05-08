@@ -1,0 +1,22 @@
+{
+  "name": "graduationdesign",
+  "version": "1.0.0",
+  "description": "帮堂弟做的毕业设计，瞎写的",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChangLCS/GraduationDesign.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChangLCS/GraduationDesign/issues"
+  },
+  "homepage": "https://github.com/ChangLCS/GraduationDesign#readme",
+  "dependencies": {
+    "wx-api-common": "^1.0.3"
+  }
+}
