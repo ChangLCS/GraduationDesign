@@ -1,0 +1,86 @@
+form{
+  width: 100%;
+  height: 500rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center
+}
+.tel{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tel-icon{
+  width: 100rpx;
+  height: 100rpx;
+  display: table-cell;
+  text-align: center;
+  padding-top: 15rpx;
+}
+.tel-icon image{
+  width: 70%;
+  height: 70%;
+}
+.tel-text{
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  
+
+}
+.tel-input{
+  width: 450rpx;
+  height: 100rpx;
+  display: flex;
+  
+  align-items: center;
+  
+}
+.address{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+}
+.address-icon{
+  width: 100rpx;
+  height: 100rpx;
+  display: table-cell;
+  text-align: center;
+  padding-top: 15rpx;
+}
+.address-icon image{
+  width: 75%;
+  height: 75%;
+}
+.address-text{
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+
+}
+.address-input{
+  width: 450rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+
+  
+  
+}
+.address-input input{
+  width: 450rpx;
+  height: 100rpx;
+}
+.button{
+  height: 100rpx;
+  width: 100%;
+
+}
+button{
+  background-color: white;
+}

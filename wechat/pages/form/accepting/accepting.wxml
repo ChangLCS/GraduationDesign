@@ -1,0 +1,32 @@
+<view class='container'>
+  <block wx:for='{{list}}' wx:key='key'>
+    <form>
+      <view class='header'>
+        <view class='header-text'>订单信息</view>
+        <view class='header-input'>
+          <input disabled='true' value='12750026522'></input>
+        </view>
+      </view>
+      <view class='body'>
+        <view class='body-text'>我的要求：</view>
+        <view class='body-content'>
+          <textarea disabled='true' auto-height value='{{item.content}}'></textarea>
+        </view>
+      </view>
+      <view class='foot'>
+        <view class='foot-money'>
+          <view class='foot-money-text'>感谢费：</view>
+
+        </view>
+        <view class='foot-button'>
+          <view class='button'>
+            <button>取消订单</button>
+          </view>
+
+        </view>
+
+      </view>
+
+    </form>
+  </block>
+</view>

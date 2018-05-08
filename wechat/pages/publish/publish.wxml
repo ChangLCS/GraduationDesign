@@ -1,0 +1,17 @@
+<view class='container'>
+ <form bindsubmit='FormSubmit' data-form-address='form-address' dataform-tel-='form-tel' data-content='content'>
+   <view class='header'>
+  <view class='header-title'>订单配送至</view>
+  <view class='header-address'><input name='form-address' value='竹九529'></input></view>
+  <view class='header-detail'><input name='form-tel' value='12750026522'></input></view>
+ </view>
+ <view class='body'>
+   <view class='body-title'>我的要求</view>
+   <view class='body-content'><textarea name='content' value='快递代取 圆通快递'></textarea></view>
+  </view>
+ <view class='foot'>
+  <view class='foot-money'>支付金额：5元</view>
+  <view class='foot-button'><button form-type='submit' class='button'>确认下单</button></view>
+ </view>
+ </form>
+</view>

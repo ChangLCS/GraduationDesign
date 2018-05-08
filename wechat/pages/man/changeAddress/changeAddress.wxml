@@ -1,0 +1,16 @@
+<view class='container'>
+ <form bindsubmit='formSubmit' bindreset='formReset' data-tel='tel' data-address='address'>
+  <view class='tel'>
+   <view class='tel-icon'><image src='../../../image/19.png'></image></view>
+   <view class='tel-text'>电话号码：</view>
+   <view class='tel-input'><input name='tel' value='{{tel}}' ></input></view>
+  </view>
+  <view class='address'>
+   <view class='address-icon'><image src='../../../image/11.png'></image></view>
+   <view class='address-text'>收货地址：</view>
+   <view class='address-input'><textarea name='address' auto-height value='{{address}}'></textarea></view>
+  </view>
+  <view class='button'><button form-type='submit'>修改完成</button></view>
+  <view class='button'><button form-type='reset'>删除地址</button></view>
+ </form>
+</view>

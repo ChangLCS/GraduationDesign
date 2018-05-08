@@ -1,0 +1,34 @@
+<view class='container'>
+ <block wx:for='{{list}}' wx:key='key'>
+   <form>
+    <view class='header'>
+
+      <view class='header-text'>发单人电话：</view>
+      <view class='header-input'>
+        <input></input>
+      </view>
+
+    </view>
+    <view class='body'>
+      <view class='body-text'>我的要求：</view>
+      <view class='body-content'>
+        <textarea auto-height value='{{item.content}}'></textarea>
+      </view>
+    </view>
+    <view class='foot'>
+      <view class='foot-money'>
+        <view class='foot-money-text'>感谢费：</view>
+        <view class='foot-money-num'></view>
+      </view>
+      <view class='foot-button'>
+       
+        <view class='button'>
+          <button bindtap='fulfilledOrder' data-index='{{index}}'>确认完成</button>
+        </view>
+      </view>
+
+    </view>
+
+  </form>
+ </block>
+</view>

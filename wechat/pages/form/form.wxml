@@ -1,0 +1,34 @@
+<view class='container'>
+ <view class='my'>
+  <view class='my-title'>我的订单</view>
+  <view class='my-list'>
+   <view class='my-list-cell' bindtap='accepting'>
+    <view class='my-list-cell-icon'><image src='../../image/15.png'></image></view>
+    <view class='my-list-cell-text'>待接单</view>
+   </view>
+   <view class='my-list-cell' bindtap='finish'>
+    <view class='my-list-cell-icon'><image src='../../image/5.png'></image></view>
+    <view class='my-list-cell-text'>待完成</view>
+   </view>
+   <view class='my-list-cell' bindtap='finished'>
+    <view class='my-list-cell-icon'><image src='../../image/14.png'></image></view>
+    <view class='my-list-cell-text'>已完成</view>
+   </view>
+  </view>
+ </view>
+  <view class='her'>
+  <view class='her-title'>别人的订单</view>
+  <view class='her-list'>
+   <view class='her-list-cell' bindtap='fulfill'>
+    <view class='her-list-cell-icon'><image src='../../image/17.png'></image></view>
+    <view class='her-list-cell-text'>待完成</view>
+   </view>
+   <view class='her-list-cell' bindtap='fulfilled'>
+    <view class='her-list-cell-icon'><image src='../../image/16.png'></image></view>
+    <view class='her-list-cell-text'>已完成</view>
+   </view>
+   
+  </view>
+ </view>
+ 
+</view>

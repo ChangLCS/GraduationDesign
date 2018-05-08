@@ -1,0 +1,15 @@
+<view class='container'>
+ <form bindsubmit='formSubmit' data-tel='tel' data-address='address'>
+  <view class='tel'>
+   <view class='tel-icon'><image src='../../../image/19.png'></image></view>
+   <view class='tel-text'>电话号码：</view>
+   <view class='tel-input'><input name='tel' ></input></view>
+  </view>
+  <view class='address'>
+   <view class='address-icon'><image src='../../../image/11.png'></image></view>
+   <view class='address-text'>收货地址：</view>
+   <view class='address-input'><textarea name='address' auto-height></textarea></view>
+  </view>
+  <view class='button'><button form-type='submit'>填写完成</button></view>
+ </form>
+</view>

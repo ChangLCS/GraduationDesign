@@ -1,0 +1,11 @@
+<view class='container'>
+  <view class='info'>
+   <view class='info-avatarUrl'><image src='../../image/7.png'></image></view>
+   <view class='info-name'>肥东7</view>
+  </view>
+  <view class='address' bindtap='chooseAddress'>
+   <view class='address-icon'><image src='../../image/7.png'></image></view>
+   <view  class='address-text' >收货地址</view>
+  </view>
+
+</view>
