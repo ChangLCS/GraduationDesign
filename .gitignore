@@ -2,6 +2,8 @@ typings/*
 jsconfig.json*
 node_modules/*
 
+config.mysql.js
+
 .DS_Store
 
 # Editor directories and files

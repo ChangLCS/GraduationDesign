@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ChangLCS/GraduationDesign#readme",
   "dependencies": {
+    "mysql": "^2.15.0",
     "wx-api-common": "^1.0.3"
   }
 }

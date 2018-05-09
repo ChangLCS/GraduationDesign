@@ -8,6 +8,7 @@
 
 const http = require('http');
 const url = require('url');
+const mysql = require('./config.mysql.js');
 const config = require('./config.js');
 
 const data = {
@@ -15,6 +16,18 @@ const data = {
   age: 26,
   birthday: '1992-12-29',
 };
+
+mysql.connect();
+
+mysql.query('SELECT * FROM user', (error, result) => {
+  if (error) {
+    console.log('[SELECT ERROR] - ', error.message);
+    return;
+  }
+  console.log('result', result);
+});
+
+mysql.end();
 
 const server = http.createServer((req, res) => {
   const urlInfo = url.parse(req.url, true);
