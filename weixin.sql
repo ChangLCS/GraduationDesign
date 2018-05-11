@@ -1,0 +1,15 @@
+USE weixin;
+
+create table wx_users
+(
+  id INT(11) NOT NULL,
+  openId VARCHAR(255) DEFAULT NULL,
+  nickName VARCHAR(255) DEFAULT NULL,
+  gender INT(11) DEFAULT NULL,
+  city VARCHAR(255) DEFAULT NULL,
+  province VARCHAR(255) DEFAULT NULL,
+  country VARCHAR(255) DEFAULT NULL,
+  avatarUrl VARCHAR(255) DEFAULT NULL,
+  unionId VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY(id)
+)

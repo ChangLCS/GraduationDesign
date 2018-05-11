@@ -8,41 +8,48 @@
 
 const http = require('http');
 const url = require('url');
-const mysql = require('./config.mysql.js');
-const config = require('./config.js');
+const mysql = require('./config.mysql');
+const config = require('./config');
+const apiPath = require('./apiPath');
 
-const data = {
-  name: 'Chang',
-  age: 26,
-  birthday: '1992-12-29',
-};
+// const data = {
+//   name: 'Chang',
+//   age: 26,
+//   birthday: '1992-12-29',
+// };
 
-mysql.connect();
+// mysql.connect();
 
-mysql.query('SELECT * FROM user', (error, result) => {
-  if (error) {
-    console.log('[SELECT ERROR] - ', error.message);
-    return;
-  }
-  console.log('result', result);
-});
+// mysql.query('SELECT * FROM user', (error, result) => {
+//   if (error) {
+//     console.log('[SELECT ERROR] - ', error.message);
+//     return;
+//   }
+//   console.log('result', result);
+// });
 
-mysql.end();
+// mysql.end();
 
 const server = http.createServer((req, res) => {
   const urlInfo = url.parse(req.url, true);
-  if (/\/{1,2}test$/i.test(urlInfo.pathname)) {
-    res.writeHead(200, Object.assign({}, config.responseHeader));
-    res.end(
-      JSON.stringify(
-        Object.assign({}, config.responseSuccess, {
-          result: data,
-        }),
-      ),
-    );
-  } else {
-    res.end(JSON.stringify(config.responseError));
-  }
+
+  const apiFun = require(apiPath[urlInfo]);
+  apiFun
+    .do()
+    .then((result) => {})
+    .catch((err) => {});
+  // if (/\/{1,2}test$/i.test(urlInfo.pathname)) {
+  //   res.writeHead(200, Object.assign({}, config.responseHeader));
+  //   res.end(
+  //     JSON.stringify(
+  //       Object.assign({}, config.responseSuccess, {
+  //         result: data,
+  //       }),
+  //     ),
+  //   );
+  // } else {
+  //   res.end(JSON.stringify(config.responseError));
+  // }
 });
 
 server.listen(9000);
