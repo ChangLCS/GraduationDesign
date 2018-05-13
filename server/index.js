@@ -6,8 +6,8 @@
 
 'use strict';
 
-const http = require('http');
-const url = require('url');
+const http = require('http'); //  创建http服务
+const url = require('url'); //  分析请求url
 const mysql = require('./config.mysql');
 const config = require('./config');
 const apiPath = require('./apiPath');
@@ -33,11 +33,24 @@ const apiPath = require('./apiPath');
 const server = http.createServer((req, res) => {
   const urlInfo = url.parse(req.url, true);
 
-  const apiFun = require(apiPath[urlInfo]);
-  apiFun
-    .do()
-    .then((result) => {})
-    .catch((err) => {});
+  let body = '';
+  req.on('data', (chunk) => {
+    body += chunk;
+  });
+
+  req.on('end', () => {
+    const form = JSON.parse(body);
+
+    const reg = new RegExp(/(\/?)(\/.*)/);
+    const path = `./controller/${apiPath[urlInfo.pathname.replace(reg, '$2')]}`;
+
+    const apiFun = require(path);
+    apiFun
+      .do({}, form)
+      // .then((result) => {})
+      // .catch((err) => {});
+  });
+
   // if (/\/{1,2}test$/i.test(urlInfo.pathname)) {
   //   res.writeHead(200, Object.assign({}, config.responseHeader));
   //   res.end(
@@ -55,4 +68,4 @@ const server = http.createServer((req, res) => {
 server.listen(9000);
 
 console.log('-----------------------------');
-console.log('server running');
+console.log('9000 --------------  server running');

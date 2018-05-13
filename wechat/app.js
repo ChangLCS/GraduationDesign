@@ -1,3 +1,5 @@
+import user from './api/user/index';
+
 App({
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
@@ -14,7 +16,6 @@ App({
     wx.login({
       success: (res) => {
         if (res.code) {
-          console.log('res', res);
           this.getUserInfo(res.code);
         } else {
         }
@@ -39,15 +40,17 @@ App({
   //  获取用户信息
   getUserInfo(code) {
     wx.getUserInfo({
-      success: function(res) {
-        // success
-        console.log(res);
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
+      success: (res) => {
+        if (res.userInfo) {
+          const form = {
+            code,
+            ...res.userInfo,
+          };
+
+          user.setUser(form).then((userRes) => {
+            console.log('userRes', userRes);
+          });
+        }
       },
     });
   },
