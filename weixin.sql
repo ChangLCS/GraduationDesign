@@ -2,7 +2,7 @@ USE weixin;
 
 create table wx_users
 (
-  id INT(11) NOT NULL,
+  id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   openId VARCHAR(255) DEFAULT NULL,
   nickName VARCHAR(255) DEFAULT NULL,
   gender INT(11) DEFAULT NULL,
