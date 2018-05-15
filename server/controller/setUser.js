@@ -21,7 +21,7 @@ const _ = (params, form) => {
           openId: resData.openid,
         });
 
-        mysql.connect();
+        // mysql.connect();
 
         mysql.query(
           'SELECT id FROM weixin.wx_users WHERE openId = ?',
@@ -61,7 +61,7 @@ const _ = (params, form) => {
                 });
               }
 
-              mysql.end();
+              // mysql.end();
               if (doError) {
                 reject(doError);
               } else {
