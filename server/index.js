@@ -8,27 +8,8 @@
 
 const http = require('http'); //  创建http服务
 const url = require('url'); //  分析请求url
-const mysql = require('./config.mysql');
 const config = require('./config');
 const apiPath = require('./apiPath');
-
-// const data = {
-//   name: 'Chang',
-//   age: 26,
-//   birthday: '1992-12-29',
-// };
-
-// mysql.connect();
-
-// mysql.query('SELECT * FROM user', (error, result) => {
-//   if (error) {
-//     console.log('[SELECT ERROR] - ', error.message);
-//     return;
-//   }
-//   console.log('result', result);
-// });
-
-// mysql.end();
 
 const server = http.createServer((req, res) => {
   const urlInfo = url.parse(req.url, true);
@@ -45,24 +26,34 @@ const server = http.createServer((req, res) => {
     const path = `./controller/${apiPath[urlInfo.pathname.replace(reg, '$2')]}`;
 
     const apiFun = require(path);
-    apiFun
-      .do({}, form)
-      // .then((result) => {})
-      // .catch((err) => {});
-  });
 
-  // if (/\/{1,2}test$/i.test(urlInfo.pathname)) {
-  //   res.writeHead(200, Object.assign({}, config.responseHeader));
-  //   res.end(
-  //     JSON.stringify(
-  //       Object.assign({}, config.responseSuccess, {
-  //         result: data,
-  //       }),
-  //     ),
-  //   );
-  // } else {
-  //   res.end(JSON.stringify(config.responseError));
-  // }
+    res.writeHead(
+      200,
+      Object.assign({}, config.responseHeader, {
+        'Access-Control-Allow-Origin': req.headers.host,
+      }),
+    );
+
+    apiFun({}, form)
+      .then((result) => {
+        res.end(
+          JSON.stringify(
+            Object.assign({}, config.responseSuccess, {
+              result,
+            }),
+          ),
+        );
+      })
+      .catch((result) => {
+        res.end(
+          JSON.stringify(
+            Object.assign({}, config.responseError, {
+              result,
+            }),
+          ),
+        );
+      });
+  });
 });
 
 server.listen(9000);

@@ -4,17 +4,11 @@ const http = require('https');
 const mysql = require('../config.mysql');
 const weixinConfig = require('../weixin/config');
 
-var _ = function() {};
-
-_.prototype = {
-  do(params, form) {
-    this.params = params;
-    this.form = form;
-    console.log('this.form', this.form);
-
+const _ = (params, form) => {
+  return new Promise((resolve, reject) => {
     const path = `https://api.weixin.qq.com/sns/jscode2session?appid=${weixinConfig.appId}&secret=${
       weixinConfig.appSecret
-    }&js_code=${this.form.code}&grant_type=authorization_code`;
+    }&js_code=${form.code}&grant_type=authorization_code`;
 
     http.get(path, (res) => {
       let resData = '';
@@ -23,7 +17,7 @@ _.prototype = {
       });
       res.on('end', () => {
         resData = JSON.parse(resData);
-        this.form = Object.assign(this.form, {
+        form = Object.assign(form, {
           openId: resData.openid,
         });
 
@@ -31,17 +25,21 @@ _.prototype = {
 
         mysql.query(
           'SELECT id FROM weixin.wx_users WHERE openId = ?',
-          [this.form.openId],
+          [form.openId],
           (error, results, fields) => {
+            if (error) {
+              reject(error);
+              return;
+            }
             let sql = '';
             const sqlForm = [
-              this.form.avatarUrl,
-              this.form.city,
-              this.form.country,
-              this.form.province,
-              this.form.gender,
-              this.form.nickName,
-              this.form.openId,
+              form.avatarUrl,
+              form.city,
+              form.country,
+              form.province,
+              form.gender,
+              form.nickName,
+              form.openId,
               results[0] ? results[0].id : undefined,
             ];
             if (results.length) {
@@ -53,18 +51,28 @@ _.prototype = {
             }
 
             const sqlstr = mysql.query(sql, sqlForm, (doError, doResult, doFields) => {
-              console.log('doError, doResult, doFields', doError, doResult, doFields);
+              if (results.length) {
+                form = Object.assign(form, {
+                  id: results[0] ? results[0].id : undefined,
+                });
+              } else {
+                form = Object.assign(form, {
+                  id: doResult.insertId,
+                });
+              }
+
               mysql.end();
-              // if (doError) {
-              // }
+              if (doError) {
+                reject(doError);
+              } else {
+                resolve(form);
+              }
             });
           },
         );
       });
     });
-  },
+  });
 };
 
-var $ = new _();
-
-module.exports = $;
+module.exports = _;
