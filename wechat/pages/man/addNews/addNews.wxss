@@ -1,0 +1,42 @@
+form{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+.cell{
+  width: 680rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-bottom: 1rpx solid #f8f8f8
+}
+.cell-title{
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.cell-input{
+  width: 70%;
+  height: 100rpx;
+}
+.cell-input input{
+  width: 100%;
+  height: 100%
+}
+.button{
+  width: 680rpx;
+  height: 100rpx;
+}
+.button button{
+  width: 100%;
+  height: 90%;
+  border-radius: 0;
+  border: 1rpx solid black;
+  background-color: white
+}
+.button button::after{
+  border: none;
+}

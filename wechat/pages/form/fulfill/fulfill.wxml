@@ -5,7 +5,7 @@
 
       <view class='header-text'>发单人电话：</view>
       <view class='header-input'>
-        <input></input>
+        <input value='{{item.tel}}'></input>
       </view>
 
     </view>

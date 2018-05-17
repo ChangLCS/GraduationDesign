@@ -15,6 +15,19 @@ Page({
    wx.navigateTo({
      url: '../form/accepting/accepting'
     })
+    //var that = this
+    // wx.request({
+    //   url: 'host+接口',
+    //   data: 'formData+avatarUrl+nickname',
+    //   header: {'Content-Type':'application/json'},
+    //   method: 'POST',
+    //   dataType: 'json',
+    //   responseType: 'text',
+    //   success: function(res) {
+
+    //   },
+      
+    // })
   },
 
   /**

@@ -13,7 +13,8 @@ Page({
     wx.setStorageSync('num1', this.data.list[index])
     var list = wx.getStorageSync('list')
     list.splice(index,1)
-    this.setData({list:list})    
+    this.setData({list:list})
+    console.log(list)    
     wx.setStorageSync('list', list)
     wx.navigateTo({
       url: '../fulfilled/fulfilled?index='+index,

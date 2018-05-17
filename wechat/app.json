@@ -10,13 +10,12 @@
     "pages/form/finished/finished",
     "pages/form/fulfill/fulfill",
     "pages/form/fulfilled/fulfilled",
-    
 
     "pages/man/man",
     "pages/man/chooseAddress/chooseAddress",
     "pages/man/changeAddress/changeAddress",
-    "pages/man/addAddress/addAddress"
-
+    "pages/man/addAddress/addAddress",
+    "pages/man/addNews/addNews"
   ],
   "window": {
     "navigationBarTextStyle": "black",

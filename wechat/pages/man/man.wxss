@@ -6,10 +6,12 @@
   background-color: white;
   margin-bottom: 20rpx;
   align-items: center;
+  justify-content: center
 }
 .info-avatarUrl{
   width: 150rpx;
   height: 150rpx;
+  
 
 }
 .info-avatarUrl image{
@@ -17,9 +19,25 @@
   height: 100%;
 }
 .info-name{
-  width: 100rpx;
+  width: 200rpx;
   height: 50rpx;
+  display: table-cell;
+  text-align: center;
 
+}
+.info-button{
+  width: 290rpx;
+  height: 100rpx;
+}
+.info-button button{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 2rpx solid black;
+  border-radius: 0;
+}
+.info-button button::after{
+  border: none
 }
 .address{
   width: 100%;
@@ -46,4 +64,8 @@
   height: 100rpx;
   line-height: 100rpx;
 
+}
+button{
+  width: 250rpx;
+  height: 100rpx;
 }
