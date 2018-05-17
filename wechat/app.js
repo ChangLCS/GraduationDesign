@@ -10,14 +10,15 @@ App({
       icon: 'loading',
     });
 
-    // setTimeout(function() {
-    // wx.hideToast();
-    // }, 2000);
     wx.login({
       success: (res) => {
         if (res.code) {
           this.getUserInfo(res.code);
         } else {
+          wx.showToast({
+            title: '登录失败',
+            icon: 'loading',
+          });
         }
       },
     });
@@ -48,7 +49,15 @@ App({
           };
 
           user.setUser(form).then((userRes) => {
-            console.log('userRes', userRes);
+            if (userRes.data.code === 0) {
+              const data = userRes.data.result;
+              wx.setStorageSync('userInfo', data);
+            } else {
+              wx.showToast({
+                title: '用户信息插入失败',
+                icon: 'loading',
+              });
+            }
           });
         }
       },

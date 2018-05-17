@@ -20,7 +20,7 @@ const server = http.createServer((req, res) => {
   });
 
   req.on('end', () => {
-    const form = JSON.parse(body);
+    const form = JSON.parse(body ? body : '{}');
 
     const reg = new RegExp(/(\/?)(\/.*)/);
     const path = `./controller/${apiPath[urlInfo.pathname.replace(reg, '$2')]}`;
@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
       }),
     );
 
-    apiFun({}, form)
+    apiFun(urlInfo.query, form)
       .then((result) => {
         res.end(
           JSON.stringify(

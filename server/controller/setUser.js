@@ -1,3 +1,6 @@
+/**
+ * 初始化用户的信息
+ */
 'use strict';
 
 const http = require('https');
@@ -20,8 +23,6 @@ const _ = (params, form) => {
         form = Object.assign(form, {
           openId: resData.openid,
         });
-
-        // mysql.connect();
 
         mysql.query(
           'SELECT id FROM weixin.wx_users WHERE openId = ?',
@@ -61,7 +62,6 @@ const _ = (params, form) => {
                 });
               }
 
-              // mysql.end();
               if (doError) {
                 reject(doError);
               } else {

@@ -1,26 +1,25 @@
 <view class='container'>
   <view class='info'>
-   
-      
-         
-      <block wx:if='{{userInfo.length==0}}'><view class='info-button'><button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button></view></block>
-      <block wx:else><view class='info-avatarUrl'>
-          <image src='{{userInfo.avatarUrl}}'></image>
-        </view>
-        <view class='info-name'>{{userInfo.nickName}}</view></block>
-    
-    </view>
-    <view class='address' bindtap='chooseAddress'>
-      <view class='address-icon'>
-        <image src='../../image/7.png'></image>
+
+    <block>
+      <view class='info-avatarUrl'>
+        <image src='{{userInfo.avatarUrl}}'></image>
       </view>
-      <view class='address-text'>收货地址</view>
-    </view>
-    <view class='address' bindtap='addNews'>
-      <view class='address-icon'>
-        <image src='../../image/9.png'></image>
-      </view>
-      <view class='address-text'>注册信息</view>
-    </view>
+      <view class='info-name'>{{userInfo.nickName}}</view>
+    </block>
 
   </view>
+  <view class='address' bindtap='chooseAddress'>
+    <view class='address-icon'>
+      <image src='../../image/7.png'></image>
+    </view>
+    <view class='address-text'>收货地址</view>
+  </view>
+  <view class='address' bindtap='addNews'>
+    <view class='address-icon'>
+      <image src='../../image/9.png'></image>
+    </view>
+    <view class='address-text'>注册信息</view>
+  </view>
+
+</view>

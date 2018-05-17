@@ -1,36 +1,50 @@
 <view class='container'>
- <form bindsubmit='formsubmit' data-newsOne='newsOne' data-newsTwo='newsTwo' data-newsThree='newsThree'>
- <block wx:if="{{value.length==0}}">
-  <view class='cell'>
-   <view class='cell-title'>电话号码：</view>
-   <view class='cell-input'><input name='newsOne' placeholder='请输入电话号码'></input></view>
-  </view>
-   <view class='cell'>
-   <view class='cell-title'>身份证号：</view>
-   <view class='cell-input'><input name='newsTwo' placeholder='请输入身份证号码'></input></view>
-  </view>
-   <view class='cell'>
-   <view class='cell-title'>学号信息：</view>
-   <view class='cell-input'><input name='newsThree' placeholder='请输入你的学号'></input></view>
-  </view>
-  <view class='button'>
-   <button form-type='submit'>填写完成</button>
-  </view></block>
-  <block wx:else>
-  <view class='cell'>
-   <view class='cell-title'>电话号码：</view>
-   <view class='cell-input'><input  value='{{value.newsOne}}'></input></view>
-  </view>
-   <view class='cell'>
-   <view class='cell-title'>身份证号：</view>
-   <view class='cell-input'><input value='{{value.newsTwo}}' ></input></view>
-  </view>
-   <view class='cell'>
-   <view class='cell-title'>学号信息：</view>
-   <view class='cell-input'><input value='{{value.newsThree}}'></input></view>
-  </view></block>
- 
- </form>
-  
+  <form bindsubmit='formsubmit' data-newsOne='newsOne' data-newsTwo='newsTwo' data-newsThree='newsThree'>
+    <block wx:if="{{!form.phone || !form.idNo || !form.studentNo}}">
+      <view class='cell'>
+        <view class='cell-title'>电话号码：</view>
+        <view class='cell-input'>
+          <input name='phone' placeholder='请输入电话号码'></input>
+        </view>
+      </view>
+      <view class='cell'>
+        <view class='cell-title'>身份证号：</view>
+        <view class='cell-input'>
+          <input name='idNo' placeholder='请输入身份证号码'></input>
+        </view>
+      </view>
+      <view class='cell'>
+        <view class='cell-title'>学号信息：</view>
+        <view class='cell-input'>
+          <input name='studentNo' placeholder='请输入你的学号'></input>
+        </view>
+      </view>
+      <view class='button'>
+        <button form-type='submit'>填写完成</button>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='cell'>
+        <view class='cell-title'>电话号码：</view>
+        <view class='cell-input'>
+          <input value='{{form.phone}}'></input>
+        </view>
+      </view>
+      <view class='cell'>
+        <view class='cell-title'>身份证号：</view>
+        <view class='cell-input'>
+          <input value='{{form.idNo}}'></input>
+        </view>
+      </view>
+      <view class='cell'>
+        <view class='cell-title'>学号信息：</view>
+        <view class='cell-input'>
+          <input value='{{form.studentNo}}'></input>
+        </view>
+      </view>
+    </block>
+
+  </form>
+
 
 </view>
