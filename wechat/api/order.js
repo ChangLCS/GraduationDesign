@@ -2,7 +2,7 @@
  * 关于订单的接口
  */
 
-import api from '../index';
+import api from './index';
 
 const path = {
   orderCreate: '/order/create',

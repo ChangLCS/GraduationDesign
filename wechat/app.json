@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-
     "pages/publish/publish",
+
+    "pages/index/index",
 
     "pages/form/form",
     "pages/form/accepting/accepting",

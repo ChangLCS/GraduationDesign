@@ -21,6 +21,7 @@ create TABLE wx_orders (
   id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   createId INT(11) DEFAULT NULL,
   creataTime DATETIME DEFAULT NULL,
+  phone VARCHAR(255) DEFAULT NULL,
   address VARCHAR(255) DEFAULT NULL,
   remarks VARCHAR(255) DEFAULT NULL,
   amount DECIMAL(18,2) DEFAULT NULL,
@@ -28,3 +29,4 @@ create TABLE wx_orders (
   acceptTime DATETIME DEFAULT NULL,
   status INT(11) DEFAULT NULL COMMENT '0 待接单，1 已接单，2 已完成，3 已取消'
 )
+

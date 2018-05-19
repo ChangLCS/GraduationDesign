@@ -25,7 +25,7 @@ const _ = (params, form) => {
         });
 
         mysql.query(
-          'SELECT id FROM weixin.wx_users WHERE openId = ?',
+          'SELECT * FROM weixin.wx_users WHERE openId = ?',
           [form.openId],
           (error, results, fields) => {
             if (error) {
@@ -53,7 +53,7 @@ const _ = (params, form) => {
 
             const sqlstr = mysql.query(sql, sqlForm, (doError, doResult, doFields) => {
               if (results.length) {
-                form = Object.assign(form, {
+                form = Object.assign({}, results[0], form, {
                   id: results[0] ? results[0].id : undefined,
                 });
               } else {

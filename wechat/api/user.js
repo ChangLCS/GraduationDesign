@@ -2,7 +2,7 @@
  * 主页文件的 api
  */
 
-import api from '../index';
+import api from './index';
 
 const path = {
   setUser: '/set/user',
