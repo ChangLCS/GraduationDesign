@@ -1,0 +1,6 @@
+<view>
+
+  <view class="auth-text">第一次进入小程序需要进行授权</view>
+  <button class="auth-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">进行授权</button>
+
+</view>

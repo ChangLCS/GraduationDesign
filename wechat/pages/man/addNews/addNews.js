@@ -31,24 +31,17 @@ Page({
     } else {
       api.register(form).then((res) => {
         if (res.data.code === 0) {
-          wx.switchTab({
-            url: '../../man/man',
-          });
+          wx.navigateBack();
         }
       });
     }
   },
   onLoad() {
-    api
-      .getUser()
-      .then((res) => {
-        const form = res.data.result;
-        this.setData({
-          form,
-        });
-      })
-      .catch((err) => {
-        console.log('err', err);
+    api.getUser().then((res) => {
+      const form = res.data.result;
+      this.setData({
+        form,
       });
+    });
   },
 });

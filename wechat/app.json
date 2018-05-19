@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/publish/publish",
-
     "pages/index/index",
 
+    "pages/publish/publish",
+
     "pages/form/form",
+
     "pages/form/accepting/accepting",
     "pages/form/finish/finish",
     "pages/form/finished/finished",
@@ -15,7 +16,8 @@
     "pages/man/chooseAddress/chooseAddress",
     "pages/man/changeAddress/changeAddress",
     "pages/man/addAddress/addAddress",
-    "pages/man/addNews/addNews"
+    "pages/man/addNews/addNews",
+    "pages/authorization/authorization"
   ],
   "window": {
     "navigationBarTextStyle": "black",

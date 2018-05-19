@@ -13,12 +13,17 @@ export default api.setOption({
         ? wx.getStorageSync('userInfo').openId
         : undefined,
   },
-  request: (res) => {
+  request(res) {
+    res.params.openId =
+      wx.getStorageSync('userInfo') && wx.getStorageSync('userInfo').openId
+        ? wx.getStorageSync('userInfo').openId
+        : undefined;
+
     wx.showLoading({
       title: '加载中',
     });
   },
-  response: (res) => {
+  response(res) {
     wx.hideLoading();
   },
 });

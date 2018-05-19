@@ -28,7 +28,7 @@ const _ = (params, form) => {
         ];
         sql = 'UPDATE wx_users SET phone = ? , idNo = ? , studentNo = ?  where id = ?';
 
-        const sqlstr = mysql.query(sql, sqlForm, (doError, doResult, doFields) => {
+        mysql.query(sql, sqlForm, (doError, doResult, doFields) => {
           if (doError) {
             reject(doError);
           } else {

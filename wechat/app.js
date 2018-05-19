@@ -52,6 +52,9 @@ App({
             if (userRes.data.code === 0) {
               const data = userRes.data.result;
               wx.setStorageSync('userInfo', data);
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(data);
+              }
             } else {
               wx.showToast({
                 title: '用户信息插入失败',
@@ -60,6 +63,11 @@ App({
             }
           });
         }
+      },
+      fail: (res) => {
+        wx.navigateTo({
+          url: '../authorization/authorization?code=' + code,
+        });
       },
     });
   },

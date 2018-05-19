@@ -20,7 +20,7 @@ Page({
     } else if (!form.amount || !/^\d+(\.\d+?||\d+?)$/.test(form.amount)) {
       msg = '请输入正确的金额';
     }
-    console.log(form);
+
     if (msg) {
       wx.showModal({
         title: msg,

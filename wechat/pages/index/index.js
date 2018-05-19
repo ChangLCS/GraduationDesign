@@ -1,103 +1,48 @@
-Page({
+import order from '../../api/order';
 
+const app = getApp();
+
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    list:[{
-      name: '胖东1',
-      tel:'12750026522',
-      avatarUrl:'../../image/1.png',
-      address:'竹园九栋529',
-      content:'快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼1'
-    },
-    {
-        name: '胖东2',
-        tel: '12750026522',
-        avatarUrl: '../../image/1.png',
-        address: '竹园九栋529',
-        content: '快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼2'},
-    {
-      name: '胖东4',
-      tel: '12750026522',
-      avatarUrl: '../../image/1.png',
-      address: '竹园九栋529',
-      content: '快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼 快递代取 圆通快递 送上楼4'
-    },
-    ]
-    
+    list: [],
   },
-  fulfillOrder:function(e){
-    var num = e.currentTarget.dataset.index
-    wx.setStorageSync('num', this.data.list[num])
-    wx.navigateTo({
-      url: '../form/fulfill/fulfill?num='+num,
-    })
-
+  fulfillOrder(e) {
+    const id = e.currentTarget.dataset.id;
+    order.orderAccept(id).then((res) => {
+      if (res.data.code === 0) {
+        wx.navigateTo({
+          url: '../form/fulfill/fulfill',
+        });
+      } else {
+        wx.navigateTo({
+          url: '../man/addNews/addNews',
+        });
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // var that = this 
-    // wx.request({
-    //   url: 'host+接口',
-    //   method:'GET',
-    //   header: { 'content-type': 'application/json'} ,
-    //   success:function(res){
-
-    //   }
-    //})
-    
+  onLoad() {
+    const _this = this;
+    const userInfo = wx.getStorageSync('userInfo');
+    if (userInfo && userInfo.openId) {
+      _this.dataInit();
+    } else {
+      app.userInfoReadyCallback = (res) => {
+        _this.dataInit();
+      };
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  dataInit() {
+    order.orderOther().then((res) => {
+      if (res.data.code === 0) {
+        const data = res.data.result;
+        this.setData({
+          list: data,
+        });
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
-})
+});

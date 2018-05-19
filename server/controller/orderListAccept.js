@@ -1,5 +1,5 @@
 /**
- * 获取所有的未接订单，别人的
+ * 自己接的别人订单
  */
 'use strict';
 
@@ -34,8 +34,8 @@ const _ = (params, form) => {
           ' wx_orders o' +
           ' LEFT JOIN wx_users u ON o.createId = u.id' +
           ' LEFT JOIN wx_users ua ON o.acceptId = ua.id' +
-          ' WHERE o.`status` = 0 AND o.createId <> ?;';
-        const sqlForm = [userInfo.id || 0];
+          ' WHERE o.`status` = ? AND o.acceptId = ?;';
+        const sqlForm = [params.status || -1, userInfo.id || 0];
         mysql.query(sql, sqlForm, (doError, doResult, doFields) => {
           if (doError) {
             reject(doError);

@@ -6,5 +6,7 @@ module.exports = {
   '/register': 'register',
   '/order/create': 'orderCreate',
   '/order/list': 'orderList',
-  '/order/ohter': 'orderOther',
+  '/order/other': 'orderOther',
+  '/order/list/accept': 'orderListAccept',
+  '/order/accept': 'orderAccept',
 };

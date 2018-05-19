@@ -1,30 +1,30 @@
 <view class='container'>
   <block wx:for='{{list}}' wx:key='key'>
-  <view class='form'>
-    <view class='header'>
-      <view class='header-avatarUrl'>
-        <image src='{{item.avatarUrl}}'></image>
-      </view>
-      <view class='header-detail'>
-        <view class='header-detail-name'>{{item.name}}</view>
-        <view class='header-detail-address'>收货地址：{{item.address}}</view>
-      </view>
-    </view>
-    <view class='body'>
-      <textarea disabled='ture' auto-height value='{{item.content}} '> </textarea>
-    </view>
-    <view class='foot'>
-      <view class='foot-money'>感谢费：5元
-      </view>
-      <view class='foot-button'>
-        
-        <view class='button'>
-          <button bindtap='fulfillOrder' data-index='{{index}}'>我来帮忙</button>
+    <view class='form'>
+      <view class='header'>
+        <view class='header-avatarUrl'>
+          <image src='{{item.createAvatarUrl}}'></image>
+        </view>
+        <view class='header-detail'>
+          <view class='header-detail-name'>{{item.createName}}</view>
+          <view class='header-detail-address'>收货地址：{{item.address}}</view>
         </view>
       </view>
+      <view class='body'>
+        <textarea disabled='ture' auto-height value='{{item.remarks}}'> </textarea>
+      </view>
+      <view class='foot'>
+        <view class='foot-money'>感谢费：{{item.amount}}元
+        </view>
+        <view class='foot-button'>
 
+          <view class='button'>
+            <button bindtap='fulfillOrder' data-id='{{item.id}}'>我来帮忙</button>
+          </view>
+        </view>
+
+      </view>
     </view>
-  </view>
   </block>
 
 </view>

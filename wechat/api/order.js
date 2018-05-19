@@ -8,6 +8,8 @@ const path = {
   orderCreate: '/order/create',
   orderList: '/order/list',
   orderOther: '/order/other',
+  orderAccept: '/order/accept',
+  orderListAccept: '/order/list/accept',
 };
 
 //  创建订单
@@ -23,12 +25,25 @@ const orderList = (status) =>
     status,
   });
 
-//  获取除了自己以外的订单
-const orderOther = (status) =>
-  api.get(path.orderOther, {
+//  获取所有的未接订单，别人的
+const orderOther = () => api.get(path.orderOther);
+
+//  自己接的别人订单
+const orderListAccept = (status) =>
+  api.get(path.orderListAccept, {
     status,
+  });
+
+//  接订单
+const orderAccept = (id) =>
+  api.post(path.orderAccept, {
+    id,
   });
 
 export default {
   orderCreate,
+  orderList,
+  orderOther,
+  orderListAccept,
+  orderAccept,
 };

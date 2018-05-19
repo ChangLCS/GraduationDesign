@@ -1,0 +1,11 @@
+.auth-text {
+  margin: 200rpx auto 200rpx auto;
+  padding: 0 50rpx;
+  text-align: center;
+}
+
+.auth-btn {
+  display: block;
+  width: 500rpx;
+  margin: 0 auto;
+}

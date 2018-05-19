@@ -4,20 +4,20 @@
 
       <view class='header-text'>接单人电话：</view>
       <view class='header-input'>
-        <input disabled='true' value='12750026522'></input>
+        <input disabled='true' value='{{item.acceptPhone}}'></input>
       </view>
 
     </view>
     <view class='body'>
       <view class='body-text'>我的要求：</view>
       <view class='body-content'>
-        <textarea disabled='true' auto-height value='竹园九栋点一份外卖送上楼谢谢 竹园九栋点一份外卖送上楼谢谢竹园九栋点一份外卖送上楼谢谢竹园九栋'></textarea>
+        <textarea disabled='true' auto-height value='{{item.remarks}}'></textarea>
       </view>
     </view>
     <view class='foot'>
       <view class='foot-money'>
         <view class='foot-money-text'>感谢费：</view>
-        <view class='foot-money-num'></view>
+        <view class='foot-money-num'>{{item.amount}}元</view>
       </view>
       <view class='foot-button'>
         <view class='button'>
@@ -32,4 +32,3 @@
 
   </form>
 </view>
-
