@@ -1,5 +1,5 @@
 /**
- * 注册手机，身份证，学生证
+ * 创建订单
  */
 'use strict';
 
@@ -21,18 +21,23 @@ const _ = (params, form) => {
         }
         let sql = '';
         const sqlForm = [
+          results[0].id,
+          new Date(),
           form.phone,
-          form.idNo,
-          form.studentNo,
-          results[0] ? results[0].id : undefined,
+          form.address,
+          form.remarks,
+          form.amount,
         ];
-        sql = 'UPDATE wx_users SET phone = ? , idNo = ? , studentNo = ?  where id = ?';
+        sql =
+          'INSERT INTO wx_orders(createId,createTime,phone,address,remarks,amount) VALUES(?,?,?,?,?,?)';
 
         const sqlstr = mysql.query(sql, sqlForm, (doError, doResult, doFields) => {
           if (doError) {
             reject(doError);
           } else {
-            resolve('更新成功');
+            resolve({
+              id: doResult.insertId,
+            });
           }
         });
       },

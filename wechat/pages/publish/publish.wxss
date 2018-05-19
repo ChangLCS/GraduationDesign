@@ -1,21 +1,21 @@
-form{
+form {
   width: 750rpx;
 }
-.header{
+.header {
   width: 100%;
   height: 200rpx;
   display: flex;
   flex-direction: column;
   background-color: white;
 }
-.header-title{
+.header-title {
   width: 100%;
   height: 50rpx;
   display: table-cell;
   text-align: center;
   font-weight: bold;
 }
-.header-address{
+.header-address {
   width: 100%;
   height: 100rpx;
   display: flex;
@@ -23,26 +23,26 @@ form{
   align-items: center;
   justify-content: center;
 }
-.header-address input{
+.header-address input {
   display: table-cell;
   text-align: center;
 }
-.header-detail{
+.header-detail {
   width: 100%;
   height: 50rpx;
   display: table-cell;
   text-align: center;
 }
-.body{
+.body {
   width: 100%;
   height: 350rpx;
   display: flex;
   flex-direction: column;
   border-top: 1rpx solid #f8fbf8;
   background-color: white;
-  align-items: center
+  align-items: center;
 }
-.body-title{
+.body-title {
   width: 90%;
   height: 100rpx;
   font-size: 40rpx;
@@ -50,62 +50,60 @@ form{
   border-bottom: 1rpx solid #f8fbf8;
   line-height: 100rpx;
 }
-.body-content{
+.body-content {
   width: 100%;
   height: 250rpx;
   display: flex;
   justify-content: center;
 }
-.body-content textarea{
+.body-content textarea {
   width: 90%;
 }
-.foot{
+.foot {
   width: 100%;
   height: 100rpx;
   display: flex;
   flex-direction: row;
   background-color: white;
-  border: 1px solid #808080
+  border: 1px solid #808080;
 }
-.foot-money{
+.foot-money {
   width: 50%;
   height: 100rpx;
   display: flex;
-  flex-direction: row
+  flex-direction: row;
 }
-.foot-money-text{
+.foot-money-text {
   width: 40%;
   height: 100rpx;
   display: table-cell;
   text-align: center;
   line-height: 100rpx;
 }
-.foot-money-text1{
+.foot-money-text1 {
   width: 5%;
   height: 100rpx;
   display: table-cell;
   text-align: center;
   line-height: 100rpx;
 }
-.foot-money-input{
+.foot-money-input {
   width: 45%;
   height: 100rpx;
   display: flex;
   align-content: center;
-
 }
-.foot-money-input input{
+.foot-money-input input {
   width: 100%;
-  height: 100%
+  height: 100%;
 }
-.foot-button{
+.foot-button {
   width: 50%;
   height: 100rpx;
-  display: flex
+  display: flex;
 }
-.button{
+.button {
   background-color: white;
   width: 100%;
   height: 100rpx;
-  
 }

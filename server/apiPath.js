@@ -5,4 +5,6 @@ module.exports = {
   '/set/user': 'setUser',
   '/register': 'register',
   '/order/create': 'orderCreate',
+  '/order/list': 'orderList',
+  '/order/ohter': 'orderOther',
 };

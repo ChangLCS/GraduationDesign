@@ -1,4 +1,5 @@
 <view class='container'>
+
   <form bindsubmit='FormSubmit'>
     <view class='header'>
       <view class='header-title'>订单配送至</view>
@@ -28,4 +29,5 @@
       </view>
     </view>
   </form>
+
 </view>
