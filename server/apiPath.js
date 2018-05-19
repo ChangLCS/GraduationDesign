@@ -4,4 +4,5 @@ module.exports = {
   '/get/user': 'getUser',
   '/set/user': 'setUser',
   '/register': 'register',
+  '/order/create': 'orderCreate',
 };

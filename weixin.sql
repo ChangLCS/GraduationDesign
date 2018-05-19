@@ -25,5 +25,6 @@ create TABLE wx_orders (
   remarks VARCHAR(255) DEFAULT NULL,
   amount DECIMAL(18,2) DEFAULT NULL,
   acceptId INT(11) DEFAULT NULL,
+  acceptTime DATETIME DEFAULT NULL,
   status INT(11) DEFAULT NULL COMMENT '0 待接单，1 已接单，2 已完成，3 已取消'
 )

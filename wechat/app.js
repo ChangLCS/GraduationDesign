@@ -1,4 +1,4 @@
-import user from './api/user/index';
+import user from './api/user';
 
 App({
   /**

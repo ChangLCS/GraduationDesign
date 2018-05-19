@@ -1,6 +1,6 @@
 // pages/man/addNews/addNews.js
 
-import api from '../../../api/user/index';
+import api from '../../../api/user';
 
 Page({
   data: {
