@@ -9,4 +9,6 @@ module.exports = {
   '/order/other': 'orderOther',
   '/order/list/accept': 'orderListAccept',
   '/order/accept': 'orderAccept',
+  '/pachong': 'pachong',
+  '/getJson/': 'getJson',
 };
